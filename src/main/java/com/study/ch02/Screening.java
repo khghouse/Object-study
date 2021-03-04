@@ -29,7 +29,11 @@ public class Screening {
 	}
 
 	// 영화 예매 기능
-	/*
-	 * public Reservation reserve(Customer customer, int audienceCount) { return new Reservation(customer, this, calculateFee(audienceCount), audienctCount)); }
-	 */
+	public Reservation reserve(Customer customer, int audienceCount) {
+		return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
+	}
+
+	private Money calculateFee(int audienceCount) {
+		return movie.calculateMovieFee(this).times(audienceCount);
+	}
 }
